@@ -1,0 +1,18 @@
+type Event {
+    id: ID!
+    name: String!
+    description: String!
+    startDate: String!
+    endDate: String!
+    createdAt: String!
+    createdBy: Int!
+}
+
+
+input NewEvent {
+    name: String!
+    description: String!
+    startDate: String!
+    endDate: String!
+}
+

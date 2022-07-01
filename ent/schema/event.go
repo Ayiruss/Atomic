@@ -1,33 +1,28 @@
 package schema
 
-import {
+import (
 	"entgo.io/ent"
 	"entgo.io/ent/schema/field"
-	"entgo.io/ent/schema/edge"
-	"entgo.io/schema/index"
-}
+)
 
-
+// Event holds the schema definition for the Event entity.
 type Event struct {
-	ent.schema
+	ent.Schema
 }
 
+// Fields of the Event.
 func (Event) Fields() []ent.Field {
-	return []ent.Field {
+	return []ent.Field{
 		field.String("name"),
 		field.String("description"),
 		field.Time("start_date"),
 		field.Time("end_date"),
-		field.Time("created_at").
-		Default(time.Now).
-		Immutable(),
-		field.int("created_by")
+		field.Time("created_at"),
+		field.Int("created_by"),
 	}
 }
 
+// Edges of the Event.
 func (Event) Edges() []ent.Edge {
-	return []ent.Edge{
-		edge.To("config", Config.Type)
-		.Unique(),
-	}
+	return nil
 }
